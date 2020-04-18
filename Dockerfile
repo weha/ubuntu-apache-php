@@ -2,7 +2,8 @@ FROM ubuntu:18.04
 MAINTAINER Wesley Haegens <wesley@weha.be>
 
 # Add basics first
-RUN apt -y install bash curl ca-certificates openssl git tzdata nano software-properties-common \
+RUN apt update \
+	&& apt -y install bash curl ca-certificates openssl git tzdata nano software-properties-common \
 	&& add-apt-repository -y ppa:ondrej/php \
 	&& apt update \
 	&& apt -y upgrade \
