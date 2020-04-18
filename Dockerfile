@@ -16,7 +16,7 @@ RUN apt -y install php-common php-xdebug php-mbstring php-soap php-zip php-mysql
 
 # Add apache to run and configure
 RUN echo '*** Apache modules...' \
-	&& a2enmod rewrite_module session_module session_cookie_module session_crypto_module deflate_module unique_id_module cache_module cache_socache_module http2_module
+	&& a2enmod rewrite_module session_module session_cookie_module session_crypto_module deflate_module unique_id_module cache_module cache_socache_module http2_module \
     && sed -i "s#^DocumentRoot \".*#DocumentRoot \"/var/www/html\"#g" /etc/apache2/httpd.conf \
     && sed -i "s#/var/www/localhost/htdocs#/var/www/html#" /etc/apache2/httpd.conf \
     && printf "\n<Directory \"/var/www/html\">\n\tAllowOverride All\n</Directory>\n" >> /etc/apache2/httpd.conf
