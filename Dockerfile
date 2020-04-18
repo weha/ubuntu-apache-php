@@ -2,11 +2,11 @@ FROM ubuntu:18.04
 MAINTAINER Wesley Haegens <wesley@weha.be>
 
 # Add basics first
-RUN add-apt-repository -y ppa:ondrej/php \
+RUN apt -y install bash curl ca-certificates openssl git tzdata nano software-properties-common \
+	&& add-apt-repository -y ppa:ondrej/php \
 	&& apt update \
 	&& apt -y upgrade \
-	&& apt -y install \
-	bash apache2 curl ca-certificates openssl git tzdata nano software-properties-common php
+	&& apt -y install apache2 php
 	
 # Add Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
