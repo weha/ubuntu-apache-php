@@ -3,7 +3,7 @@ MAINTAINER Wesley Haegens <wesley@weha.be>
 
 # Add basics first
 RUN apt update \
-	&& DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
+	&& DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata \
 	&& apt -y install bash curl ca-certificates openssl git nano software-properties-common \
 	&& add-apt-repository -y ppa:ondrej/php \
 	&& apt update \
