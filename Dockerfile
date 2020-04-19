@@ -1,6 +1,9 @@
 FROM ubuntu:18.04
 MAINTAINER Wesley Haegens <wesley@weha.be>
 
+# set noninteractive installation
+export DEBIAN_FRONTEND=noninteractive
+
 # Add basics first
 RUN apt update \
 	&& apt -y install bash curl ca-certificates openssl git nano software-properties-common \
