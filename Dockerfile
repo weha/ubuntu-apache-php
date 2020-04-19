@@ -23,7 +23,8 @@ RUN echo '*** Apache modules...' \
     #&& sed -i "s#/var/www/localhost/htdocs#/var/www/html#" /etc/apache2/httpd.conf \
     #&& printf "\n<Directory \"/var/www/html\">\n\tAllowOverride All\n</Directory>\n" >> /etc/apache2/httpd.conf
 
-RUN mkdir /var/www/html && chown -R apache:apache /var/www/html && chmod -R 755 /var/www/html && mkdir bootstrap
+#RUN mkdir /var/www/html && chown -R apache:apache /var/www/html && chmod -R 755 /var/www/html && 
+RUN mkdir bootstrap
 
 ADD start.sh /bootstrap/
 RUN chmod +x /bootstrap/start.sh
